@@ -4,13 +4,19 @@
 .font-xs{
     font-size: 11.5px ;
 }
-
+.font-md{
+    font-size: 16px;
+}
 .material-icons.font-sm{
     font-size: 20px ;
 }
 
 .border-bottom-blue{
     border-bottom: solid 2px #0dcaf0;
+}
+
+.border-ends{
+    border-right: solid 1px #d3d3d3;
 }
 
 .fill40{
@@ -23,7 +29,12 @@
 .text-darkgray{
     color: rgb(153, 153, 153);
 }
+@media (min-width: 992px) {
+    .ms-lg-32{
+        margin-left: 32px;
+    }
+}
 
-.ms-32{
-    margin-left: 32px;
+.bg{
+    background-image:  linear-gradient(45deg, #caf0f8, white);
 }
