@@ -295,6 +295,25 @@
                 </div>
               </div>
 
+              <div class="row p-3">
+
+                <div class="col-3">
+                  <span class="text-info">Caption</span>
+                </div>
+                <div class="col-9">
+                  <span class="material-icons text-success font-sm float-end pe-3" role="button">format_underlined</span>
+                  <span class="material-icons text-info font-sm float-end pe-3" role="button">format_italic</span>
+                  <span class="material-icons text-danger font-sm float-end pe-3" role="button">format_bold</span>
+                  <span class="material-icons text-warning font-sm float-end pe-3" role="button">emoji_emotions</span>
+                </div>
+              </div>
+
+              <div class="row p-3">
+                <div class="col-12">
+                  <textarea name="" id="" class="form-control bg-light text-dark" rows="5"  placeholder="Every writer I know has trouble writing..."></textarea>
+                </div>
+              </div>
+
             </form>
 
           </div>
@@ -352,8 +371,11 @@
           <div class="modal-body">
             <div class="container h-80vh overflow-y-scroll">
               <div class="row h-100">
-                <!-- image section -->
-                <div class="col-lg-8 col-12 h-100 p-3 rounded-3">
+                
+                <!-- if trade post don't add h-100 -->
+                <div class="col-lg-8 col-12 p-3 rounded-3 h-100">
+
+                  <!-- if only media post -->
 
                   <div id="fullPostCarousel" class="carousel slide h-100" data-interval="false">
                     <div class="carousel-indicators">
@@ -401,7 +423,49 @@
                       <span class="visually-hidden">Next</span>
                     </button>
                   </div>
+
+                  <div class="row me-0 pt-1 pb-3 d-flex align-items-center h-100 d-none">
+                    <div class="col-1 d-lg-block d-none"></div>
+                    <div class="col-lg-9 col-12 ps-sm-3 pe-sm-3 ps-0 shadow mt-2 text-light p-3 position-relative">
+      
+                      <div class="position-absolute">
+                        <abbr title="Running"><span class="material-icons text-primary">directions_run</span></abbr>
+                      </div>
+      
+                      <div class="row">
+                        <div class="col-12 text-center">
+                          <span class=" font-xxlg">RELIANCE INC. <sub class="text-darkgray font-xs">NFO</sub></span>
+                        </div>
+                      </div>
+      
+                      <div class="row p-3 d-flex justify-content-around shadow">
+                        <div class="col-auto">
+                          <span class="text-darkgray">Avg Price: </span><span class="text-primary">3500</span>
+                        </div>
+                        <div class="col-auto">
+                          <span class="text-darkgray">LTP: </span><span class="text-success">32490</span>
+                        </div>
+                        <div class="col-auto">
+                          <span class="text-darkgray">QTY: </span><span class="text-info">500</span>
+                        </div>
+                      </div>
+
+                      <div class="row p-3 d-flex justify-content-around shadow">
+                        <div class="col-auto font-lg">
+                          <span class="text-darkgray">Stop Loss: </span><span class="text-danger">3500</span>
+                        </div>
+                      </div>
+      
+                      <div class="row p-3 d-flex justify-content-around">
+                        <div class="col-auto font-xlg">
+                          <span class="text-darkgray">P&L </span><span class="text-danger ">-3500 <sub class="font-xs">(-2%)</sub></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
+
                 <!-- comments and caption section -->
                 <div class="col-lg-4 col-12 h-100 p-3 rounded-3 shadow">
                   <div class="row pt-2 ps-2 d-flex justify-content-center">
@@ -538,7 +602,6 @@
     <div class="container ps-0 pe-0">
       
       <!-- all rows are used as row me-0 -->
-      <!-- row and ps-2 if row me-0 is converted to row -->
       <div class="row ps-2 me-0">
         <div class="col-lg-8 col-sm-12 col-12 p-4 pe-0 pt-lg-1 border-end border-black border-md-none">
 
@@ -581,7 +644,6 @@
               </div>
             </div>
 
-            <!-- testing modal for full post in the image -->
             <div class="row me-0 pt-1 pb-3">
               <div class="col-1 d-lg-block d-none"></div>
               <div class="col-lg-9 col-12 ps-sm-3 pe-sm-3 ps-0 shadow mt-2 d-flex">
@@ -604,7 +666,7 @@
               </div>
             </div>
 
-            <div class="row me-0">
+            <div class="row me-0 ps-lg-2">
               <div class="col-1"></div>
               <div class="like col-lg-1 col-3 ">
                 <span class="material-icons font-sm text-danger text-hover-danger" role="button">
@@ -722,8 +784,10 @@
           </div>
 
 
+          <!-- second post starts from here(running trade) -->
+
           <div class="post border-bottom border-black">
-            <div class="row me-0 pt-5">
+            <div class="row me-0 pt-4 ps-lg-0 ps-1">
 
               <div class="col-lg-1 col-auto p-0" role="button">
                 <div class="rounded-circle overflow-hidden fill40 float-end">
@@ -732,8 +796,8 @@
               </div>
               <div class="col-lg-11 col-10">
                 <div class="row me-0">
-                  <div class="col-12 font-sm text-gray">
-                    Vipul Gupta <span class="text-darkgray">posted an update</span>
+                  <div class="col-12 font-sm text-light">
+                    <strong>Vipul Gupta</strong> <span class="text-darkgray">posted an update</span>
                   </div>
                 </div>
                 <div class="row me-0">
@@ -744,18 +808,56 @@
                   </div>
                 </div>
               </div>
-
             </div>
 
-            <div class="row me-0 pt-3 pb-4">
+            <div class="row me-0 pt-3 ps-lg-0 ps-1">
               <div class="col-1 d-lg-block d-none"></div>
               <div class="col-lg-9 col-12 ps-sm-3 pe-sm-3 ps-0" >
-                <span class="font-sm text-darkgray">Hi <br> Electric vehicle manufacturing</span>
-                <div class="rounded-3 overflow-hidden shadow mt-2"><img class="h-100 w-100" src="./assets/profilePictures/images.jpeg"></div>
+                <span class="font-sm text-light">Hi <br> Electric vehicle manufacturing</span>
               </div>
             </div>
 
-            <div class="row me-0">
+            <div class="row me-0 pt-1 pb-3">
+              <div class="col-1 d-lg-block d-none"></div>
+              <div class="col-lg-9 col-12 ps-sm-3 pe-sm-3 ps-0 shadow mt-2 text-light p-3 position-relative">
+
+                <div class="position-absolute">
+                  <abbr title="Running"><span class="material-icons text-primary">directions_run</span></abbr>
+                </div>
+
+                <div class="row">
+                  <div class="col-12 text-center">
+                    <span class=" font-xxlg">RELIANCE INC. <sub class="text-darkgray font-xs">NFO</sub></span>
+                  </div>
+                </div>
+
+                <div class="row p-3 d-flex justify-content-around shadow">
+                  <div class="col-auto">
+                    <span class="text-darkgray">Avg Price: </span><span class="text-primary">3500</span>
+                  </div>
+                  <div class="col-auto">
+                    <span class="text-darkgray">LTP: </span><span class="text-success">32490</span>
+                  </div>
+                  <div class="col-auto">
+                    <span class="text-darkgray">QTY: </span><span class="text-info">500</span>
+                  </div>
+                </div>
+
+                <div class="row p-3 d-flex justify-content-around shadow">
+                  <div class="col-auto font-lg">
+                    <span class="text-darkgray">Stop Loss: </span><span class="text-danger">@3500</span>
+                  </div>
+                </div>
+
+                <div class="row p-3 d-flex justify-content-around">
+                  <div class="col-auto font-xlg">
+                    <span class="text-darkgray">P&L </span><span class="text-success ">+3500 <sub class="font-xs">(+2.8%)</sub></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row me-0 ps-lg-2">
               <div class="col-1"></div>
               <div class="like col-lg-1 col-3 ">
                 <span class="material-icons font-sm text-danger text-hover-danger" role="button">
@@ -793,7 +895,7 @@
                   <div class="col-10">
                     <div class="row me-0 d-flex align-items-center">
                       <div class="col-11 font-sm">
-                        <span class=" text-gray">Vipul Gupta</span> 
+                        <strong class=" text-light">Vipul Gupta</strong> 
                         <span class="text-darkgray">commented</span>
                         <span class="font-xs text-darkgray">1 hour ago</span>
                       </div>
@@ -813,7 +915,7 @@
                   <div class="col-auto p-0 fill30 " role="button"></div>
                   <div class="col-10">
                     <div class="row me-0">
-                      <div class="col-11"><span class="font-w text-secondary">Lorem ipsum dolor sit amet molestias ipsa fugit.</span></div>
+                      <div class="col-11"><span class="font-w text-light">Lorem ipsum dolor sit amet molestias ipsa fugit.</span></div>
                     </div>
                   </div>
                 </div>
@@ -830,7 +932,7 @@
                   <div class="col-10">
                     <div class="row me-0 d-flex align-items-center">
                       <div class="col-11 font-sm">
-                        <span class="text-gray">Vipul Gupta</span> 
+                        <strong class="text-light">Vipul Gupta</strong> 
                         <span class="text-darkgray">commented</span>
                         <span class="font-xs text-gray">1 hour ago</span>
                       </div>
@@ -851,7 +953,7 @@
                   <div class="col-10">
                     <div class="row me-0">
 
-                      <div class="col-11"><span class="font-w text-secondary">Lorem ipsum lias Lorem vitae est non, dolore ullam quisquam? nderit. Neque?</span></div>
+                      <div class="col-11"><span class="font-w text-light">Lorem ipsum lias Lorem vitae est non, dolore ullam quisquam? nderit. Neque?</span></div>
                       <div class="col-1 p-0 d-flex align-items-center">
                         <span class="material-icons font-sm text-info text-hover-info" role="button">
                           edit
@@ -871,7 +973,7 @@
               </div>
             </div>
           </div>
-          
+
         </div>
 
         <!-- right panel -->
