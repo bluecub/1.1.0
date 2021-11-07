@@ -32,15 +32,15 @@
   
             <div class="collapse navbar-collapse col-auto" id="navbarSupportedContent">
 
-              <div class="row me-0 w-100  d-flex justify-content-center">
-                <div class="col-lg-8 col-12">
-                  <div class="d-flex align-items-center rounded-3 w-75">
+              <div class="row w-100 me-0 pt-2 pt-lg-0 d-flex justify-content-center">
+                <div class="col-lg-6 col-12">
+                  <div class="d-flex align-items-center rounded-3 w-100">
                     <span class="material-icons text-light">search</span>
                     <input type="text" class="box-hover-blue form-control border-0 text-light bg-transparent p-2 rounded-3 w-100" placeholder="Search...">
                   </div>
                 </div>
                 
-                <div class="col-lg-4 col-12 d-none d-lg-block">
+                <div class="col-lg-4 offset-lg-2 col-12 d-none d-lg-block">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-evenly">
                     <li class="nav-item">
                       <a class="nav-link text-light" href="#"><span class="material-icons">badge</span></a>
@@ -106,8 +106,8 @@
     <div class="modal fade" id="postCreteModal" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content bg-dark rounded-3 w-100">
-          <div class="modal-header">
-            <h5 class="modal-title text-light">Create Post &#128523;</h5>
+          <div class="modal-header border-bottom border-black">
+            <h5 class="modal-title text-warning ">Create Post &#128523;</h5>
             <button type="button" class="close border-0 bg-transparent" data-dismiss="modal">
               <span class="material-icons text-light">close</span>
             </button>
@@ -146,13 +146,13 @@
               <div class="row p-3">
 
                 <div class="col-3">
-                  <span class="text-light">Caption</span>
+                  <span class="text-info">Caption</span>
                 </div>
                 <div class="col-9">
-                  <span class="material-icons text-light font-sm  float-end pe-4" role="button">format_underlined</span>
-                  <span class="material-icons text-light font-sm float-end pe-4" role="button">format_italic</span>
-                  <span class="material-icons text-light font-sm float-end pe-4" role="button">format_bold</span>
-                  <span class="material-icons text-light font-sm float-end pe-4" role="button">emoji_emotions</span>
+                  <span class="material-icons text-success font-sm float-end pe-3" role="button">format_underlined</span>
+                  <span class="material-icons text-info font-sm float-end pe-3" role="button">format_italic</span>
+                  <span class="material-icons text-danger font-sm float-end pe-3" role="button">format_bold</span>
+                  <span class="material-icons text-warning font-sm float-end pe-3" role="button">emoji_emotions</span>
                 </div>
               </div>
 
@@ -164,14 +164,14 @@
 
               <div class="row p-3 pb-1">
                 <div class="col-12">
-                  <span class="text-light font-lg text-danger">visibility</span>
+                  <span class="font-lg text-info">visibility</span>
                 </div>
               </div>
               <div class="row p-3">
                 
                 <div class="col-12">
                   <div class="form-check">
-                    <input type="radio" name="visibility" id="postPublic" class="form-check-input">
+                    <input type="radio" name="visibility" id="postPublic" class="form-check-input" checked>
                     <label for="postPublic" class="form-check-label text-light">Public</label>
                   </div>
                   <div class="form-check">
@@ -195,8 +195,8 @@
 
                 <div class="col-12">
                   <div class="form-floating">
-                    <input type="email" class="form-control bg-light" id="CreatePoststockName" placeholder="Enter Here..">
-                    <label for="CreatePoststockName">Stock Name..</label>
+                    <input type="email" class="form-control bg-light" id="postCreateStockName" placeholder="Enter Here..">
+                    <label for="postCreateStockName">Stock Name..</label>
                   </div>
                 </div>
 
@@ -204,23 +204,23 @@
 
               <div class="row p-3 d-flex justify-content-center">
                 <div class="col-auto d-flex align-items-center">
-                  <span class="material-icons text-info font-xlg">trending_up</span>
+                  <abbr title="Buy"><span class="material-icons text-info font-xlg">trending_up</span></abbr>
                 </div>
                 <div class="col-auto">
                   <label class="switch">
-                    <input type="checkbox">
+                    <input type="checkbox" onchange="buySellStyling(this, ['postCreateStockSelected', 'postCreateStockQty', 'postCreateStockPrice', 'postCreateStockSL', 'postCreateStockTotal'])">
                     <span class="slider round"></span>
                   </label>
                 </div>
                 <div class="col-auto d-flex align-items-center">
-                  <span class="material-icons text-danger font-xlg">trending_down</span>
+                  <abbr title="Sell"><span class="material-icons text-danger font-xlg">trending_down</span></abbr>
                 </div>
                 
               </div>
 
               <div class="row p-3">
                 <div class="col-12 input-group">
-                  <input type="text" class=" form-control" disabled value="Reliance INC.">
+                  <input type="text" class=" form-control bg" id="postCreateStockSelected" disabled value="Reliance INC.">
                 </div>
               </div>
 
@@ -228,7 +228,7 @@
                 
                 <div class="col-auto form-check">
                   <label for="postCreateStockIntraDay" class="text-light"><abbr class="font-no-underline" title="This Trade will be active for a day">IntraDay</abbr></label>
-                  <input name="postCreateStockTime" type="radio" class=" form-check-input" id="postCreateStockIntraDay">
+                  <input name="postCreateStockTime" type="radio" class=" form-check-input" id="postCreateStockIntraDay" checked>
                 </div>
 
                 <div class="col-auto form-check">
@@ -238,18 +238,74 @@
 
               </div>
 
+              <div class="row p-3">
+
+                <div class="col-6 ">
+                  <div class="form-floating">
+                    <input type="email" class="form-control bg" id="postCreateStockQty" placeholder="Enter Here..">
+                    <label for="postCreateStockQty">Qty..</label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-floating">
+                    <input type="email" class="form-control bg" id="postCreateStockPrice" placeholder="Enter Here..">
+                    <label for="postCreateStockPrice">Price..</label>
+                  </div>
+                </div>
+              </div>
+              
+
+              <div class="row p-3 pb-1 d-flex flex-row justify-content-around">
+                
+                <div class="col-5 offset-7">
+                  <div class="row">
+                    <div class="col-auto form-check">
+                      <label for="postCreateStockPriceMarket" class="text-light font-sm">Market</label>
+                      <input name="postCreateStockPriceType" type="radio" class=" form-check-input" id="postCreateStockPriceMarket" checked>
+                    </div>
+    
+                    <div class="col-auto form-check">
+                      <label for="postCreateStockPriceLimit" class="text-light font-sm">Limit</label>
+                      <input name="postCreateStockPriceType" type="radio" class=" form-check-input" id="postCreateStockPriceLimit" checked>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row p-3 pt-0 d-flex flex-row justify-content-around">
+                
+                <div class="col-12">
+                  <abbr title="Leave Empty for no StopLoss"><span class="material-icons text-light">tungsten</span></abbr>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-floating">
+                    <input type="text" class="form-control bg" id="postCreateStockSL" placeholder="Enter Here..">
+                    <label for="postCreateStockSL">Stop Loss..</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row p-3">
+                <div class="col-12">
+                  <div class="input-group">
+                    <input value="91203Rs" type="text" class="form-control bg text-dark" id="postCreateStockTotal" placeholder="Enter Here.." disabled>
+                  </div>
+                </div>
+              </div>
+
             </form>
 
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer border-bottom border-black">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-info">Create!&#128521;</button>
+            <button type="button" class="btn btn-info  text-light">Create!&#128521;</button>
           </div>
         </div>
       </div>
     </div>
 
-  <!-- navbar ends -->
 
     <div class="container-md ps-0 pe-0">
         
@@ -285,12 +341,205 @@
       </div>
     </div>
 
+    <!-- full post Modal (give it a max height)-->
+
+    <div class="modal fade" id="fullPostModal" tabindex="-1" role="dialog" aria-labelledby="fullPostModalLabel" aria-hidden="true">
+      <div class="modal-dialog  modal-xl" role="document">
+        <div class="modal-content bg-dark">
+          <div class="modal-header d-flex justify-content-end p-0 pe-2 pt-1 border-bottom border-black">
+            <button type="button" class="bg-transparent border-0 p-1" data-dismiss="modal"><span class="material-icons text-light">close</span></button>
+          </div>
+          <div class="modal-body">
+            <div class="container h-80vh overflow-y-scroll">
+              <div class="row h-100">
+                <!-- image section -->
+                <div class="col-lg-8 col-12 h-100 p-3 rounded-3">
+
+                  <div id="fullPostCarousel" class="carousel slide h-100" data-interval="false">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#fullPostCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#fullPostCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#fullPostCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                      <button type="button" data-bs-target="#fullPostCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                      <button type="button" data-bs-target="#fullPostCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                    </div>
+
+                    <!-- if height is greater than width than image should have the class h-100 and vice versa -->
+                    <div class="carousel-inner h-100 w-100 d-flex align-items-center shadow rounded-3">
+                      <div class="carousel-item active h-100 w-100">
+                        <div class="h-100 w-100 d-flex justify-content-center align-items-center">
+                          <img src="./assets/profilePictures/9_1631962626_0.jpg" class="d-block h-100" alt="...">
+                        </div>
+                      </div>
+                      <div class="carousel-item h-100 w-100">
+                        <div class=" h-100 w-100 d-flex justify-content-center">
+                          <img src="./assets/profilePictures/photo-1503023345310-bd7c1de61c7d.jpeg" class="d-block h-100" alt="...">
+                        </div>
+                      </div>
+                      <div class="carousel-item h-100 w-100">
+                        <div class=" h-100 w-100 d-flex justify-content-center align-items-center">
+                          <img src="./assets/profilePictures/9_1631962626_0.jpg" class="d-block h-100" alt="...">
+                        </div>
+                      </div>
+                      <div class="carousel-item h-100 w-100">
+                        <div class=" h-100 w-100 d-flex justify-content-center align-items-center">
+                          <img src="./assets/profilePictures/9_1632513164_0.gif" class="d-block w-100" alt="...">
+                        </div>
+                      </div>
+                      <div class="carousel-item h-100 w-100">
+                        <div class=" h-100 w-100 d-flex justify-content-center align-items-center">
+                          <img src="./assets/profilePictures/1338747.jpg" class="d-block w-100" alt="...">
+                        </div>
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#fullPostCarousel" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#fullPostCarousel" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+                <!-- comments and caption section -->
+                <div class="col-lg-4 col-12 h-100 p-3 rounded-3 shadow">
+                  <div class="row pt-2 ps-2 d-flex justify-content-center">
+                    <div class="col-auto p-0" role="button">
+                      <div class="rounded-circle overflow-hidden float-end">
+                        <img src="./assets/profilePictures/photo-1503023345310-bd7c1de61c7d.jpeg" class="fill150"  alt="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row pt-2">
+                    <div class="col-12 font-sm text-light text-center">
+                      <div class="row">
+                        <div class="col-12">
+                          <strong>Vipul Gupta</strong>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <span class="font-xs text-darkgray">
+                            1 hour, 57 minutes ago
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row pt-4">
+                    <div class="col-12" >
+                      <span class="font-sm text-light">Hi <br> Electric vehicle manufacturing</span>
+                    </div>
+                  </div>
+                  <div class="row me-0 pt-3 d-flex justify-content-between">
+                    <div class="like col-lg-1 col-3 ">
+                      <span class="material-icons font-sm text-danger text-hover-danger" role="button">
+                        favorite_border
+                      </span><br>
+                      <span class="font-xs text-darkgray" role="button">100</span>
+                    </div>
+                    <div class="like col-lg-1 col-3 ">
+                      <span class="material-icons font-sm text-info text-hover-info" role="button">
+                        chat
+                      </span><br>
+                      <span class="font-xs text-darkgray" role="button">100</span>
+                    </div>
+                    <div class="like col-lg-1 col-3 ">
+                      <span class="material-icons font-sm text-warning text-hover-warning" role="button">
+                        share
+                      </span>
+                    </div>
+                    <div class="like col-lg-1 col-2 ">
+                      <span class="material-icons font-sm text-success text-hover-success" role="button">
+                        bookmark_add
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="commentBox">
+                    <div class="comment pb-2">
+                      <div class="row pt-3 ps-sm-3 d-flex align-items-center pb-1">
+                        <div class="col-auto p-0" role="button">
+                          <div class="rounded-circle overflow-hidden fill30 ">
+                            <img src="./assets/profilePictures/photo-1503023345310-bd7c1de61c7d.jpeg" class="fill30" alt="">
+                          </div>
+                        </div>
+                        <div class="col-10">
+                          <div class="row d-flex align-items-center">
+                            <div class="col-10 font-sm">
+                              <strong class=" text-light">Vipul Gupta</strong> 
+                            </div>
+
+                            <!-- if no edit symbol is there then add offset-1 to alling -->
+                            <div class="col-1 offset-1 p-0 d-flex align-items-center">
+                              <span class="material-icons font-sm text-danger text-hover-danger" role="button">favorite_border</span>
+                              <span class="font-xs text-darkgray" role="button">100</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row   d-flex align-items-center ps-sm-3">
+                        <div class="col-auto p-0 fill30" role="button"></div>
+                        <div class="col-10">
+                          <div class="row">
+                            <div class="col-12"><span class="font-w text-light">Lorem ipsum dolor sit amet mostias ipsa fugit.</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="comment pb-2">
+                      <div class="row pt-3 ps-sm-3 d-flex align-items-center pb-1">
+                        <div class="col-auto p-0" role="button">
+                          <div class="rounded-circle overflow-hidden fill30 ">
+                            <img src="./assets/profilePictures/photo-1503023345310-bd7c1de61c7d.jpeg" class="fill30" alt="">
+                          </div>
+                        </div>
+                        <div class="col-10">
+                          <div class="row d-flex align-items-center">
+                            <div class="col-10 font-sm">
+                              <strong class=" text-light">Vipul Gupta</strong> 
+                            </div>
+                            <div class="col-1 p-0 d-flex align-items-center">
+                              <span class="material-icons font-sm text-info text-hover-info" role="button">
+                                edit
+                              </span>
+                            </div>
+                            <div class="col-1 p-0 d-flex align-items-center">
+                              <span class="material-icons font-sm text-danger text-hover-danger" role="button">
+                                favorite_border
+                              </span>
+                              <span class="font-xs text-darkgray" role="button">100</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row   d-flex align-items-center ps-sm-3">
+                        <div class="col-auto p-0 fill30" role="button"></div>
+                        <div class="col-10">
+                          <div class="row">
+                            <div class="col-12"><span class="font-w text-light">Lorem ipsum dolor sit amet mostias ipsa fugit.</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     
     <div class="container ps-0 pe-0">
       
       <!-- all rows are used as row me-0 -->
       <!-- row and ps-2 if row me-0 is converted to row -->
-      <div class="row ps-2 me-0 ">
+      <div class="row ps-2 me-0">
         <div class="col-lg-8 col-sm-12 col-12 p-4 pe-0 pt-lg-1 border-end border-black border-md-none">
 
 
@@ -302,7 +551,7 @@
           </div>
             
           <div class="post border-bottom border-black">
-            <div class="row me-0 pt-5">
+            <div class="row me-0 pt-5 ps-lg-0 ps-1">
 
               <div class="col-lg-1 col-auto p-0" role="button">
                 <div class="rounded-circle overflow-hidden fill40 float-end">
@@ -323,14 +572,35 @@
                   </div>
                 </div>
               </div>
-
             </div>
 
-            <div class="row me-0 pt-3 pb-4">
+            <div class="row me-0 pt-3 ps-lg-0 ps-1">
               <div class="col-1 d-lg-block d-none"></div>
               <div class="col-lg-9 col-12 ps-sm-3 pe-sm-3 ps-0" >
-                <span class="font-sm text-darkgray">Hi <br> Electric vehicle manufacturing</span>
-                <div class="rounded-3 overflow-hidden shadow mt-2"><img class="h-100 w-100" src="./assets/profilePictures/images1.jpeg"></div>
+                <span class="font-sm text-light">Hi <br> Electric vehicle manufacturing</span>
+              </div>
+            </div>
+
+            <!-- testing modal for full post in the image -->
+            <div class="row me-0 pt-1 pb-3">
+              <div class="col-1 d-lg-block d-none"></div>
+              <div class="col-lg-9 col-12 ps-sm-3 pe-sm-3 ps-0 shadow mt-2 d-flex">
+                <div class="rounded-3 overflow-hidden mh-400 w-100 d-flex align-items-center" type="button" data-toggle="modal" data-target="#fullPostModal"><img class="w-100 d-block" src="./assets/profilePictures/9_1631962626_0.jpg"></div>
+              </div>
+            </div>
+
+            <!-- if total images are more than 1 -->
+            <div class="row me-0 pb-3">
+              <div class="col-1 d-lg-block d-none"></div>
+              <div class="col-lg-3 col-4 ps-sm-3 pe-sm-3 ps-0 shadow">
+                <div class="rounded-3 overflow-hidden h-100px d-flex"><img class="w-100 d-block" src="./assets/profilePictures/photo-1503023345310-bd7c1de61c7d.jpeg"></div>
+              </div>
+              <div class="col-lg-3 col-4 ps-sm-3 pe-sm-3 ps-0 shadow">
+                <div class="rounded-3 overflow-hidden h-100px d-flex"><img class="w-100 d-block" src="./assets/profilePictures/9_1631962626_0.jpg"></div>
+              </div>
+              <div class="col-lg-3 col-4 ps-sm-3 pe-sm-3 ps-0 shadow position-relative" role="button">
+                <div class="d-flex position-absolute w-100 h-100 justify-content-center align-items-center"><span class="material-icons text-light">add</span><span class="text-light font-xlg">2</span></div>
+                <div class="rounded-3 overflow-hidden h-100px d-flex opacity-25"><img class="w-100 d-block" src="./assets/profilePictures/9_1632513164_0.gif"></div>
               </div>
             </div>
 
@@ -450,6 +720,8 @@
               </div>
             </div>
           </div>
+
+
           <div class="post border-bottom border-black">
             <div class="row me-0 pt-5">
 
@@ -692,8 +964,9 @@
             </div> 
           </div>
 
-          <div class="p-4 pt-5 pb-0 ps-5 row me-0 sticky-top">
-            <div class="h-auto bg-gray bg-gradient border border-black rounded-3 p-4 pt-2 col-auto mb-5">
+          <!-- replace the style -->
+          <div class="p-4 pt-2 ps-5 row me-0 position-sticky top-10" >
+            <div class="h-auto bg-gray bg-gradient border border-black rounded-3 p-4 pt-2 col-auto mb-4">
               <div class="font-md pb-4 pt-3" role="button">
                 <span class="border-bottom-red pb-2 text-light">Stock List &#128526;</span>
               </div>

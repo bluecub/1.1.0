@@ -11,3 +11,26 @@ togglePostCrete = (e) => {
     }
 
 }
+
+buySellStyling = (e, eleArray) => {
+
+    if(e.checked){
+
+        eleArray.forEach(element => {
+            let currEle = document.getElementById(element)
+            currEle.classList.remove('bg')
+            currEle.classList.add('bg-red')
+        });
+
+    }else{
+
+        eleArray.forEach(element => {
+            let currEle = document.getElementById(element)
+            currEle.classList.remove('bg-red')
+            currEle.classList.add('bg')
+        });
+
+    }
+
+}
+
