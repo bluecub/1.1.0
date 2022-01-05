@@ -1,0 +1,222 @@
+<!-- post create area modal-->
+<div class="modal fade" id="postCreteModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-dark rounded-3 w-100">
+        <div class="modal-header border-bottom border-black">
+            <h5 class="modal-title text-warning ">Create Post &#128523;</h5>
+            <button type="button" class="close border-0 bg-transparent" data-dismiss="modal">
+            <span class="material-icons text-light">close</span>
+            </button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row d-flex justify-content-center">
+            <div class="col-auto d-flex align-items-center">
+                <span class="material-icons text-light font-xlg">image</span>
+            </div>
+            <div class="col-auto" >
+                <label class="switch" onclick="">
+                <input type="checkbox" onchange="togglePostCrete(this)">
+                <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="col-auto d-flex align-items-center">
+                <span class="material-icons text-light font-xlg">candlestick_chart</span>
+            </div>
+            
+            </div>
+            
+            <form action="" id="postFormMedia">
+
+            <div class="row p-3">
+                <div class="col-12">
+                <label for="postFileUpload" class="w-100 text-light" role="button">
+                    <div class="p-5 rounded-3 border-dashed text-center ">
+                    <span class="material-icons font-xxlg text-info p-5">cloud_upload</span>
+                    </div>
+                </label>
+                <input type="file" name='images[]' multiple accept="video/*|image/*" id="postFileUpload" multiple hidden>
+                </div>
+            </div>
+
+            <div class="row p-3">
+
+                <div class="col-3">
+                <span class="text-info">Caption</span>
+                </div>
+                <div class="col-9">
+                <span class="material-icons text-success font-sm float-end pe-3" role="button">format_underlined</span>
+                <span class="material-icons text-info font-sm float-end pe-3" role="button">format_italic</span>
+                <span class="material-icons text-danger font-sm float-end pe-3" role="button">format_bold</span>
+                <span class="material-icons text-warning font-sm float-end pe-3" role="button">emoji_emotions</span>
+                </div>
+            </div>
+
+            <div class="row p-3">
+                <div class="col-12">
+                <textarea name="" id="" class="form-control bg-light text-dark" rows="5"  placeholder="Every writer I know has trouble writing..."></textarea>
+                </div>
+            </div>
+
+            <div class="row p-3 pb-1">
+                <div class="col-12">
+                <span class="font-lg text-info">visibility</span>
+                </div>
+            </div>
+            <div class="row p-3">
+                
+                <div class="col-12">
+                <div class="form-check">
+                    <input type="radio" name="visibility" id="postPublic" class="form-check-input" checked>
+                    <label for="postPublic" class="form-check-label text-light">Public</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="visibility" id="postFriends" class="form-check-input">
+                    <label for="postFriends" class="form-check-label text-light">Friends</label>
+                </div>
+
+                <div class="form-check">
+                    <input type="radio" name="visibility" id="postPrivate" class="form-check-input">
+                    <label for="postPrivate" class="form-check-label text-light">Private</label>
+                </div>
+                
+                </div>
+            </div>
+
+            </form>
+
+            <form action="" id="postFormTrade" hidden>
+
+            <div class="row p-3">
+
+                <div class="col-12">
+                <div class="form-floating">
+                    <input type="email" class="form-control bg-light" id="postCreateStockName" placeholder="Enter Here..">
+                    <label for="postCreateStockName">Stock Name..</label>
+                </div>
+                </div>
+
+            </div>
+
+            <div class="row p-3 d-flex justify-content-center">
+                <div class="col-auto d-flex align-items-center">
+                <abbr title="Buy"><span class="material-icons text-info font-xlg">trending_up</span></abbr>
+                </div>
+                <div class="col-auto">
+                <label class="switch">
+                    <input type="checkbox" onchange="buySellStyling(this, ['postCreateStockSelected', 'postCreateStockQty', 'postCreateStockPrice', 'postCreateStockSL', 'postCreateStockTotal'])">
+                    <span class="slider round"></span>
+                </label>
+                </div>
+                <div class="col-auto d-flex align-items-center">
+                <abbr title="Sell"><span class="material-icons text-danger font-xlg">trending_down</span></abbr>
+                </div>
+                
+            </div>
+
+            <div class="row p-3">
+                <div class="col-12 input-group">
+                <input type="text" class=" form-control bg" id="postCreateStockSelected" disabled value="Reliance INC.">
+                </div>
+            </div>
+
+            <div class="row p-3 d-flex flex-row justify-content-around">
+                
+                <div class="col-auto form-check">
+                <label for="postCreateStockIntraDay" class="text-light"><abbr class="font-no-underline" title="This Trade will be active for a day">IntraDay</abbr></label>
+                <input name="postCreateStockTime" type="radio" class=" form-check-input" id="postCreateStockIntraDay" checked>
+                </div>
+
+                <div class="col-auto form-check">
+                <label for="postCreateStockLongTerm" class="text-light"><abbr class="font-no-underline" title="This Trade will be active for 10 days">LongTerm(10D)</abbr></label>
+                <input name="postCreateStockTime" type="radio" class=" form-check-input" id="postCreateStockLongTerm">
+                </div>
+
+            </div>
+
+            <div class="row p-3">
+
+                <div class="col-6 ">
+                <div class="form-floating">
+                    <input type="email" class="form-control bg" id="postCreateStockQty" placeholder="Enter Here..">
+                    <label for="postCreateStockQty">Qty..</label>
+                </div>
+                </div>
+                <div class="col-6">
+                <div class="form-floating">
+                    <input type="email" class="form-control bg" id="postCreateStockPrice" placeholder="Enter Here..">
+                    <label for="postCreateStockPrice">Price..</label>
+                </div>
+                </div>
+            </div>
+            
+
+            <div class="row p-3 pb-1 d-flex flex-row justify-content-around">
+                
+                <div class="col-5 offset-7">
+                <div class="row">
+                    <div class="col-auto form-check">
+                    <label for="postCreateStockPriceMarket" class="text-light font-sm">Market</label>
+                    <input name="postCreateStockPriceType" type="radio" class=" form-check-input" id="postCreateStockPriceMarket" checked>
+                    </div>
+    
+                    <div class="col-auto form-check">
+                    <label for="postCreateStockPriceLimit" class="text-light font-sm">Limit</label>
+                    <input name="postCreateStockPriceType" type="radio" class=" form-check-input" id="postCreateStockPriceLimit" checked>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+
+            <div class="row p-3 pt-0 d-flex flex-row justify-content-around">
+                
+                <div class="col-12">
+                <abbr title="Leave Empty for no StopLoss"><span class="material-icons text-light">tungsten</span></abbr>
+                </div>
+
+                <div class="col-12">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg" id="postCreateStockSL" placeholder="Enter Here..">
+                    <label for="postCreateStockSL">Stop Loss..</label>
+                </div>
+                </div>
+            </div>
+
+            <div class="row p-3">
+                <div class="col-12">
+                <div class="input-group">
+                    <input value="91203Rs" type="text" class="form-control bg text-dark" id="postCreateStockTotal" placeholder="Enter Here.." disabled>
+                </div>
+                </div>
+            </div>
+
+            <div class="row p-3">
+
+                <div class="col-3">
+                <span class="text-info">Caption</span>
+                </div>
+                <div class="col-9">
+                <span class="material-icons text-success font-sm float-end pe-3" role="button">format_underlined</span>
+                <span class="material-icons text-info font-sm float-end pe-3" role="button">format_italic</span>
+                <span class="material-icons text-danger font-sm float-end pe-3" role="button">format_bold</span>
+                <span class="material-icons text-warning font-sm float-end pe-3" role="button">emoji_emotions</span>
+                </div>
+            </div>
+
+            <div class="row p-3">
+                <div class="col-12">
+                <textarea name="" id="" class="form-control bg-light text-dark" rows="5"  placeholder="Every writer I know has trouble writing..."></textarea>
+                </div>
+            </div>
+
+            </form>
+
+        </div>
+        <div class="modal-footer border-bottom border-black">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-info  text-light">Create!&#128521;</button>
+        </div>
+        </div>
+    </div>
+    </div>

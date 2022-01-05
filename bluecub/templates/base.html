@@ -1,0 +1,36 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static '/stylesheet/bootstrap/boostrap.css' %}">
+    <link rel="stylesheet" href="{% static '/stylesheet/main.css' %}" >
+    <link rel="icon" href="{% static '/images/logo.png' %}" type="image/png" sizes="32x32">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet"> 
+
+    <title>{% block head_title %}{% endblock %}</title>
+</head>
+
+{% block navbar %}
+{% include "elements/navbar.html" %}
+{% endblock navbar %}
+
+<body class="bg-dark">
+
+    {% block content %}
+    {% endblock content %}
+
+
+    {% block extra_body %}
+    {% endblock %}
+
+</body>
+</html>

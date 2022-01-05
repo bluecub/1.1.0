@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block head_title %}BlueCub-FeedPage{% endblock %}
+
+{% include "elements/navbar.html" %}
+
+
+{% block content %}
+
+  <div class="mainContainer border-start border-black">
+
+    {% include "elements/postCreateModal.html" %}
+
+    {% include "elements/indexUpdateRow.html" %}
+
+    {% include "elements/fullPostModal.html" %}
+
+    
+    <div class="container ps-0 pe-0">
+      
+      <!-- all rows are used as row me-0 -->
+      <div class="row ps-2 me-0">
+        <div class="col-lg-8 col-sm-12 col-12 p-4 pe-0 pt-lg-1 border-end border-black border-md-none">
+
+
+          <div class="border-bottom border-black me-4 d-flex justify-content-around">
+            <div role="button" class="border-bottom-blue w-auto col-auto"><strong class="font-md text-info">All Posts</strong></div>
+            <div role="button" class="ms-3 w-auto col-auto"><strong class="font-md text-light">Trending Trades</strong></div>
+            <div role="button" class="ms-3 w-auto col-auto"><strong class="font-md text-light">Friends</strong></div>
+            <div role="button" class="ms-3 w-auto col-auto"><strong class="font-md text-light">Groups</strong></div>
+          </div>
+            
+          
+          {% include "elements/imagePost.html" %}
+
+          <!-- second post starts from here(running trade) -->
+
+          {% include "elements/tradePost.html" %}
+
+        </div>
+
+        <!-- right panel -->
+        <div class="col-4 d-none d-lg-block position-relative">
+
+          {% include "elements/rightPanel.html" %}
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+  {% include "scripts.html" %}
+  
+{% endblock %}
